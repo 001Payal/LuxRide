@@ -1,0 +1,4 @@
+# .htaccess
+<Files "flag.txt">
+    Require all denied
+</Files>
