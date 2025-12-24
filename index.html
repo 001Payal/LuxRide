@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxRide | Sign In & Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1F2937",
+            accent: "#2563EB"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-700">
+    <div class="bg-white shadow-2xl rounded-2xl flex w-full max-w-4xl overflow-hidden">
+      <!-- Image Section -->
+      <div class="hidden md:flex w-1/2 bg-cover bg-center items-end justify-center pb-8"
+     style="background-image: url('image1.jpg');">
+      <div class="text-white text-center p-6 bg-black bg-opacity-40 rounded-lg w-3/4">
+        <h2 class="text-4xl font-bold">Book Your Ride</h2>
+        <p class="mt-2 text-lg">Fast. Easy. Anywhere.</p>
+      </div>
+    </div>
+
+
+      <!-- Form Section -->
+      <div class="w-full md:w-1/2 p-8">
+        <div class="mb-6 text-center">
+          <h1 class="text-3xl font-bold text-gray-800">Welcome to LuxRide</h1>
+          <p class="text-sm text-gray-500">Sign in to book or create an account</p>
+        </div>
+
+        <!-- Toggle Buttons -->
+        <div class="flex mb-6 justify-center space-x-4">
+          <button id="loginTab" class="px-4 py-2 rounded-lg bg-accent text-white">Login</button>
+          <button id="signupTab" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="space-y-4" method="POST" action="login.php">
+  <input type="text" name="username" placeholder="Username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required />
+  <input type="password" name="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required />
+  <button class="w-full bg-accent text-white py-2 rounded-lg hover:bg-blue-700 transition">Login</button>
+</form>
+
+
+        <!-- Signup Form -->
+        <form id="signupForm" class="space-y-4 hidden" method="POST" action="register.php">
+  <input type="text" name="username" placeholder="Username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required />
+  <input type="email" name="email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required />
+  <input type="password" name="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required />
+  <button class="w-full bg-accent text-white py-2 rounded-lg hover:bg-blue-700 transition">Create Account</button>
+</form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toggle Logic -->
+  <script>
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    loginTab.addEventListener('click', () => {
+      loginTab.classList.add('bg-accent', 'text-white');
+      signupTab.classList.remove('bg-accent', 'text-white');
+      signupTab.classList.add('bg-gray-200', 'text-gray-800');
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+    });
+
+    signupTab.addEventListener('click', () => {
+      signupTab.classList.add('bg-accent', 'text-white');
+      loginTab.classList.remove('bg-accent', 'text-white');
+      loginTab.classList.add('bg-gray-200', 'text-gray-800');
+      signupForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
